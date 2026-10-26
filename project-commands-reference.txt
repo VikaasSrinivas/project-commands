@@ -1,0 +1,219 @@
+PROJECT COMMAND REFERENCE — WINDOWS + VS CODE
+================================================
+This is a practical command list collected from commands discussed in our chats plus common
+setup/run commands for those projects. Exact run scripts can differ; check each project's
+README and package.json. Replace placeholders. Never put passwords/API keys in this file or GitHub.
+
+1) NOVA — AI PERSONAL ASSISTANT
+Stack: React + TypeScript + Vite; Node.js + Express + TypeScript; optional OpenAI API.
+
+Check tools:
+  node -v
+  npm -v
+  git --version
+
+Go to project folder (edit path as needed):
+  cd D:\coding\nova-ai-assistant
+  dir
+
+Install and run from project root:
+  npm install
+  npm run dev
+
+URLs discussed:
+  Frontend: http://127.0.0.1:5173
+  Backend:  http://localhost:4000
+
+Optional local environment file:
+  Copy server\.env.example server\.env
+Edit server\.env in VS Code. Example variable names only:
+  OPENAI_API_KEY=your_api_key_here
+  OPENAI_MODEL=gpt-4o-mini
+  PORT=4000
+Do not commit server\.env or share the API key.
+
+GitHub (create an empty repo first; run from project root):
+  git init
+  git add .
+  git commit -m "Initial commit: NOVA AI Personal Assistant"
+  git branch -M main
+  git remote add origin https://github.com/YOUR-USERNAME/nova-ai-assistant.git
+  git push -u origin main
+Inspect an existing remote:
+  git remote -v
+
+2) NOTENEST — MERN NOTES PROJECT
+Stack: React, Node.js, Express, MongoDB Atlas.
+
+Check tools:
+  node -v
+  npm -v
+  git --version
+
+Open extracted folder:
+  cd PATH\TO\NoteNest
+  dir
+
+Install dependencies if the root has package.json:
+  npm install
+
+If client and server each have their own package.json:
+  cd client
+  npm install
+  cd ..\server
+  npm install
+
+Run only commands supported by the project's package.json (typical examples):
+  npm run dev
+  npm start
+
+MongoDB Atlas: create a database user, allow your current IP in Network Access, copy the
+connection string from Atlas, and put it in the local server .env using the variable name
+the code expects (often MONGODB_URI). Example format only:
+  MONGODB_URI=mongodb+srv://USERNAME:PASSWORD@YOUR-CLUSTER.mongodb.net/notenest
+Never paste a real password into code, this file, screenshots, or GitHub. Rotate credentials
+if a real password was previously exposed.
+
+GitHub:
+  git init
+  git add .
+  git commit -m "Initial commit: NoteNest MERN project"
+  git branch -M main
+  git remote add origin https://github.com/YOUR-USERNAME/notenest.git
+  git push -u origin main
+
+3) NETGUARD — ORIGINAL PYTHON/STREAMLIT IDS PROTOTYPE
+Note: NETGUARD 2.0 was later paused/dropped; its planned stack was Node.js + TypeScript,
+not Python.
+
+Windows network checks:
+  ipconfig
+  tailscale ip -4
+
+General Python environment setup:
+  py -m venv .venv
+  .\.venv\Scripts\Activate.ps1
+  python -m pip install --upgrade pip
+  pip install -r requirements.txt
+
+If activation is a problem, check the venv interpreter directly:
+  .\.venv\Scripts\python.exe --version
+
+Npcap: the original Windows packet-capture prototype used Npcap.
+
+Firewall ping test rule discussed (PowerShell as Administrator; optional):
+  New-NetFirewallRule -DisplayName "NETGUARD ICMPv4 Ping Test" -Protocol ICMPv4 -IcmpType 8 -Direction Inbound -Action Allow -Profile Private
+
+Remove the test rule when no longer needed (PowerShell as Administrator):
+  Remove-NetFirewallRule -DisplayName "NETGUARD ICMPv4 Ping Test"
+
+4) NETGUARD 2.0 — PLANNED FULL-STACK VERSION
+Planned: React + TypeScript; Node.js + Express + TypeScript; PostgreSQL; Socket.IO;
+Windows-compatible packet capture. Python was explicitly excluded. Project later paused/dropped.
+
+Check:
+  node -v
+  npm -v
+  psql --version
+
+Install from the folder containing package.json:
+  npm install
+
+List scripts available in the current package:
+  npm run
+
+If npm install reports Windows EPERM cleanup warnings, close processes/terminals using the
+folder and retry. Follow package.json scripts; don't assume one command starts every service.
+
+5) NOVACART — FULL-STACK E-COMMERCE TROUBLESHOOTING
+Prior project path mentioned:
+  cd D:\coding\NovaCart-FullStack
+
+Server dependency installation discussed:
+  npm install --prefix server
+
+Check:
+  node -v
+  npm -v
+
+A previous install issue involved EPERM/better-sqlite3. Close programs using the folder and
+read the complete error. Follow this project's README; do not assume its database type.
+
+6) REACT + ANGULARJS E-COMMERCE PROJECT
+Requested stack: React + AngularJS together, Node.js + Express, database. Exact scripts vary.
+
+Check:
+  node -v
+  npm -v
+  git --version
+
+After extracting:
+  cd PATH\TO\PROJECT
+  dir
+  npm install
+
+Typical start command only if defined in package.json:
+  npm run dev
+
+If frontend and backend have separate package.json files, install/run each according to
+its README and scripts.
+
+7) PYTHON LEARNING / FILE HANDLING
+Check Python:
+  py --version
+  python --version
+  python -m pip --version
+
+Virtual environment:
+  py -m venv .venv
+  .\.venv\Scripts\Activate.ps1
+
+Install Pillow (package name Pillow; import name PIL):
+  python -m pip install Pillow
+
+Install Pygame:
+  python -m pip install pygame
+
+Run a script:
+  python filename.py
+
+Create files in PowerShell:
+  New-Item in.txt -ItemType File
+  New-Item out.txt -ItemType File
+
+Open a text file:
+  notepad in.txt
+
+8) JAVA PRACTICE / PLACEMENT PROGRAMS
+Check:
+  java -version
+  javac -version
+
+Compile and run:
+  javac Main.java
+  java Main
+
+If source says public class Main, filename must be Main.java. Online judges may require
+converting a LeetCode-style class Solution into public class Main with main().
+
+9) GENERAL WINDOWS / VS CODE COMMANDS
+  pwd
+  dir
+  cd D:\path\to\folder
+  cd ..
+  cls
+  code .
+  git status
+  git remote -v
+  npm run
+
+10) SAFETY CHECKLIST
+- Never upload .env files or API keys to GitHub; add .env to .gitignore.
+- Never store real database passwords in this reference file.
+- Run npm commands from the folder containing the relevant package.json.
+- Read the project's README before running commands.
+- If a command fails, save the full error text before troubleshooting.
+- NOVA is the current AI Personal Assistant learning project.
+- NETGUARD 2.0 was paused/dropped; its planned stack excluded Python.
+
+END
